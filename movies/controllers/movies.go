@@ -14,12 +14,39 @@ func GetMovies(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
     movies,err := models.GetMovies()
     if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		resp, _ := json.Marshal(`{"error":"` + `err.Error()"}`)
+		resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
 		w.Write(resp)
     	glog.Error(err)
 	}
 	if err := json.NewEncoder(w).Encode(movies); err != nil {
 		glog.Error("Error EncodingJson in ControllersGetMovies", err)
 
+	}
+}
+
+func NewMovie(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	movie := new(models.Movie)
+	err := json.NewDecoder(r.Body).Decode(&movie)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
+		w.Write(resp)
+		glog.Error(err)
+	} else {
+		if movie.Title != "" && movie.Director != "" && movie.Year != "" {
+			var resp string
+			resp, err = models.NewMovie(movie)
+			if err != nil {
+				w.WriteHeader(http.StatusInternalServerError)
+				resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
+				w.Write(resp)
+				glog.Error(err)
+			}else{
+				w.WriteHeader(http.StatusOK)
+				res := json.RawMessage(`{"id":"` + resp + `"}`)
+				w.Write(res)
+			}
+		}
 	}
 }

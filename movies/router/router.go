@@ -8,5 +8,6 @@ import (
 func New() *httprouter.Router {
 	router := httprouter.New()
 	router.GET("/movies", controllers.GetMovies)
+	router.POST("/movie", controllers.NewMovie)
 	return router
 }

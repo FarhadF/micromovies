@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10ef9e53-c928-435d-a8c1-185101c7e26a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies/controllers/movies.go" afterPath="$PROJECT_DIR$/movies/controllers/movies.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies/models/db.go" afterPath="$PROJECT_DIR$/movies/models/db.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies/models/models.go" afterPath="$PROJECT_DIR$/movies/models/models.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies/router/router.go" afterPath="$PROJECT_DIR$/movies/router/router.go" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,21 +21,24 @@
       <file leaf-file-name="db.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movies/models/db.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-269">
-              <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+            <state relative-caret-position="-688">
+              <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
               <folding>
-                <marker date="1514287157774" expanded="true" signature="541:561" ph="select * fro... movies" />
-                <marker date="1514287157774" expanded="true" signature="541:563" ph="select * fro... movies" />
+                <marker date="1514304181642" expanded="true" signature="571:591" ph="select * fro... movies" />
+                <marker date="1514304181642" expanded="true" signature="571:593" ph="select * fro... movies" />
+                <marker date="1514304181642" expanded="true" signature="1232:1281" ph="insert into movies... " />
+                <marker date="1514304181642" expanded="true" signature="1232:1302" ph="insert into movies... " />
+                <marker date="1514304181642" expanded="true" signature="1232:1315" ph="insert into movies... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="movies.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="movies.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/movies/controllers/movies.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="-31">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding>
                 <element signature="e#21#147#0" expanded="true" />
               </folding>
@@ -42,8 +49,8 @@
       <file leaf-file-name="router.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movies/router/router.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            <state relative-caret-position="204">
+              <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
               <folding>
                 <element signature="e#16#92#0" expanded="true" />
               </folding>
@@ -61,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movies/models/models.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="40" lean-forward="false" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+            <state relative-caret-position="306">
+              <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
               <folding>
                 <element signature="e#16#34#0" expanded="true" />
               </folding>
@@ -76,7 +83,7 @@
       <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movies/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="224">
               <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
               <folding>
                 <element signature="e#14#166#0" expanded="true" />
@@ -97,6 +104,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>name</find>
+    </findStrings>
+  </component>
   <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -110,11 +122,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/movies/router/routes.go" />
-        <option value="$PROJECT_DIR$/movies/controllers/movies.go" />
-        <option value="$PROJECT_DIR$/movies/router/router.go" />
-        <option value="$PROJECT_DIR$/movies/models/db.go" />
         <option value="$PROJECT_DIR$/movies/main.go" />
         <option value="$PROJECT_DIR$/movies/models/models.go" />
+        <option value="$PROJECT_DIR$/movies/router/router.go" />
+        <option value="$PROJECT_DIR$/movies/models/db.go" />
+        <option value="$PROJECT_DIR$/movies/controllers/movies.go" />
       </list>
     </option>
   </component>
@@ -324,12 +336,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1514215713579</updated>
-      <workItem from="1514215720502" duration="20105000" />
+      <workItem from="1514215720502" duration="26845000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20105000" />
+    <option name="totallyTimeSpent" value="26845000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1050" extended-state="6" />
@@ -371,7 +383,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -384,10 +396,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/local/go/src/runtime/panic.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="497" column="0" lean-forward="false" selection-start-line="497" selection-start-column="0" selection-end-line="497" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/go/src/runtime/asm_amd64.s">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="508" column="0" lean-forward="false" selection-start-line="508" selection-start-column="0" selection-end-line="508" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file:///usr/local/go/src/context/context.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="206" column="0" lean-forward="false" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
+        <state relative-caret-position="175">
+          <caret line="232" column="0" lean-forward="false" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -395,8 +423,45 @@
     <entry file="file:///usr/local/go/src/database/sql/sql.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
-          <caret line="648" column="0" lean-forward="false" selection-start-line="648" selection-start-column="0" selection-end-line="648" selection-end-column="0" />
+          <caret line="2096" column="0" lean-forward="false" selection-start-line="2096" selection-start-column="0" selection-end-line="2096" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movies/models/db.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-688">
+          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding>
+            <marker date="1514304181642" expanded="true" signature="571:591" ph="select * fro... movies" />
+            <marker date="1514304181642" expanded="true" signature="571:593" ph="select * fro... movies" />
+            <marker date="1514304181642" expanded="true" signature="1232:1281" ph="insert into movies... " />
+            <marker date="1514304181642" expanded="true" signature="1232:1302" ph="insert into movies... " />
+            <marker date="1514304181642" expanded="true" signature="1232:1315" ph="insert into movies... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movies/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+          <folding>
+            <element signature="e#14#166#0" expanded="true" />
+            <marker date="1514287449807" expanded="true" signature="503:764" ph="CREATE TABLE... IF" />
+            <marker date="1514287449807" expanded="true" signature="899:912" ph="select * fro... " />
+            <marker date="1514287449807" expanded="true" signature="899:919" ph="select $1 fr... movies" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movies/models/models.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+          <folding>
+            <element signature="e#16#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -408,56 +473,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movies/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
-          <folding>
-            <element signature="e#14#166#0" expanded="true" />
-            <marker date="1514287449807" expanded="true" signature="503:764" ph="CREATE TABLE... IF" />
-            <marker date="1514287449807" expanded="true" signature="899:912" ph="select * fro... " />
-            <marker date="1514287449807" expanded="true" signature="899:919" ph="select $1 fr... movies" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/movies/router/router.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        <state relative-caret-position="204">
+          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
           <folding>
             <element signature="e#16#92#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movies/models/db.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-269">
-          <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-          <folding>
-            <marker date="1514287157774" expanded="true" signature="541:561" ph="select * fro... movies" />
-            <marker date="1514287157774" expanded="true" signature="541:563" ph="select * fro... movies" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/movies/controllers/movies.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="-31">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
             <element signature="e#21#147#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movies/models/models.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="40" lean-forward="false" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
-          <folding>
-            <element signature="e#16#34#0" expanded="true" />
           </folding>
         </state>
       </provider>

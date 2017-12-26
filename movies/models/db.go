@@ -2,6 +2,9 @@ package models
 
 import (
 	"database/sql"
+	//"strconv"
+	"errors"
+	"fmt"
 )
 var db *sql.DB
 func InitDbSession() (error) {
@@ -44,4 +47,30 @@ func GetMovies() ([]Movie, error) {
 	}
 
 	return movies, nil
+}
+
+func NewMovie(movie *Movie) (string,error) {
+	err := CheckDbSession(db)
+	if err != nil {
+		return "", err
+	}
+	rows, err := db.Query("select * from movies where title='" + movie.Title + "'")
+	if err != nil {
+		return "", err
+	}
+	if !rows.Next(){
+		fmt.Println(movie)
+		var  id string
+		err := db.QueryRow("insert into movies (title, director, year, userid) values($1,$2,$3,$4) returning id", movie.Title,movie.Director, movie.Year, movie.Userid).Scan(&id)
+		//res, err := stmt.Exec(movie.Title,movie.Director, movie.Year, movie.Userid)
+		//id, err := res.LastInsertId()
+		if err != nil {
+			return "", err
+		}
+		//return strconv.FormatInt(id, 10), nil
+		return id, nil
+	} else {
+
+		return "", errors.New("fill all the required fields.")
+	}
 }

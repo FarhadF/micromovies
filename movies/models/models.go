@@ -13,3 +13,7 @@ type Movie struct {
 	CreatedOn time.Time `json:"createdon"`
 	UpdatedOn time.Time `json:"updatedon"`
 }
+
+type ErrOut struct {
+	Error string `json:"error"`
+}
