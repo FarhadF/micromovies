@@ -11,5 +11,5 @@ type Movie struct {
 	Year      string    `json:"year"`
 	Userid    string	`json:"userid"`
 	CreatedOn time.Time `json:"createdon"`
-	UpdatedOn time.Time `json:"updatedon,omitempty"`
+	UpdatedOn time.Time `json:"updatedon"`
 }
