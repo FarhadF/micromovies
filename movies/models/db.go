@@ -3,6 +3,8 @@ package models
 import (
 	"database/sql"
 	"errors"
+	"time"
+	"fmt"
 )
 var db *sql.DB
 func InitDbSession() (error) {
@@ -85,5 +87,29 @@ func DeleteMovie(id string) error {
 		return errors.New("movie does not exist")
 	}
 	_ ,err = db.Query("delete from movies where id = $1", id)
+	if err != nil {
+		return err
+	}
 		return nil
+}
+
+func UpdateMovie(movie *Movie) error {
+	err := CheckDbSession(db)
+	if err != nil {
+		return err
+	}
+	rows, err := db.Query("select * from movies where id='" + movie.Id + "'")
+	if err != nil {
+		return err
+	}
+	if !rows.Next(){
+		return errors.New("movie does not exist")
+	}
+	updatedon := time.Now()
+	fmt.Println(updatedon.Format("2006-01-02 15:04:05.999999"))
+	_ ,err = db.Query("update movies set title = $1, director = $2, year = $3 where id = $4, updatedon = $5", movie.Title, movie.Director, movie.Year, movie.Id, updatedon.Format("2017-12-26 05:33:46.689934+00:00"))
+	if err != nil {
+		return err
+	}
+	return nil
 }

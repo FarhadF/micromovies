@@ -5,7 +5,7 @@ import (
 	"github.com/julienschmidt/httprouter"
 	"github.com/golang/glog"
 	"encoding/json"
-	"imdb/movies/models"
+	"micromovies/movies/models"
 )
 
 func GetMovies(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
@@ -29,7 +29,7 @@ func NewMovie(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	movie := new(models.Movie)
 	err := json.NewDecoder(r.Body).Decode(&movie)
 	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
+		w.WriteHeader(http.StatusBadRequest)
 		resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
 		w.Write(resp)
 		glog.Error(err)
@@ -57,6 +57,7 @@ func NewMovie(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 }
 
 func DeleteMovie(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	err := models.DeleteMovie(p.ByName("id"))
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -67,5 +68,34 @@ func DeleteMovie(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 		w.WriteHeader(http.StatusOK)
 		res := json.RawMessage(`{"status":"ok"}`)
 		w.Write(res)
+	}
+}
+
+func UpdateMovie(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	movie := new(models.Movie)
+	err := json.NewDecoder(r.Body).Decode(&movie)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
+		w.Write(resp)
+		glog.Error(err)
+	} else if p.ByName("id") != movie.Id {
+		w.WriteHeader(http.StatusBadRequest)
+		res := json.RawMessage(`{"error":"malformed request"}`)
+		w.Write(res)
+		glog.Error("id != movie.Id")
+	} else {
+		err = models.UpdateMovie(movie)
+		if err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
+			w.Write(resp)
+			glog.Error(err)
+		} else {
+			w.WriteHeader(http.StatusOK)
+			res := json.RawMessage(`{"status":"ok"}`)
+			w.Write(res)
+		}
 	}
 }

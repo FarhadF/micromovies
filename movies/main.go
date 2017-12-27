@@ -4,11 +4,11 @@ import (
 	"github.com/golang/glog"
 	"flag"
 	_ "github.com/lib/pq"
-	"imdb/movies/models"
-	"imdb/movies/router"
+	"micromovies/movies/models"
+	"micromovies/movies/router"
 	"net/http"
 	"os"
-	"imdb/movies/httplog"
+	"micromovies/movies/httplog"
 )
 
 func main() {

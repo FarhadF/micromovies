@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/julienschmidt/httprouter"
-	"imdb/movies/controllers"
+	"micromovies/movies/controllers"
 )
 
 func New() *httprouter.Router {
@@ -10,5 +10,6 @@ func New() *httprouter.Router {
 	router.GET("/movies", controllers.GetMovies)
 	router.POST("/movie", controllers.NewMovie)
 	router.DELETE("/movie/:id", controllers.DeleteMovie)
+	router.POST("/movie/:id", controllers.UpdateMovie)
 	return router
 }
