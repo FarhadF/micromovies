@@ -2,9 +2,7 @@ package models
 
 import (
 	"database/sql"
-	//"strconv"
 	"errors"
-	"fmt"
 )
 var db *sql.DB
 func InitDbSession() (error) {
@@ -59,7 +57,6 @@ func NewMovie(movie *Movie) (string,error) {
 		return "", err
 	}
 	if !rows.Next(){
-		fmt.Println(movie)
 		var  id string
 		err := db.QueryRow("insert into movies (title, director, year, userid) values($1,$2,$3,$4) returning id", movie.Title,movie.Director, movie.Year, movie.Userid).Scan(&id)
 		//res, err := stmt.Exec(movie.Title,movie.Director, movie.Year, movie.Userid)
@@ -71,6 +68,22 @@ func NewMovie(movie *Movie) (string,error) {
 		return id, nil
 	} else {
 
-		return "", errors.New("fill all the required fields.")
+		return "", errors.New("movie already exists")
 	}
+}
+
+func DeleteMovie(id string) error {
+	err := CheckDbSession(db)
+	if err != nil {
+		return err
+	}
+	rows, err := db.Query("select * from movies where id='" + id + "'")
+	if err != nil {
+		return err
+	}
+	if !rows.Next(){
+		return errors.New("movie does not exist")
+	}
+	_ ,err = db.Query("delete from movies where id = $1", id)
+		return nil
 }

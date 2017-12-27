@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10ef9e53-c928-435d-a8c1-185101c7e26a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies/controllers/movies.go" afterPath="$PROJECT_DIR$/movies/controllers/movies.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies/models/db.go" afterPath="$PROJECT_DIR$/movies/models/db.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies/models/models.go" afterPath="$PROJECT_DIR$/movies/models/models.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies/router/router.go" afterPath="$PROJECT_DIR$/movies/router/router.go" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -16,29 +14,44 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="db.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="db.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/movies/models/db.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-688">
-              <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+            <state relative-caret-position="-59">
+              <caret line="60" column="19" lean-forward="false" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
               <folding>
-                <marker date="1514304181642" expanded="true" signature="571:591" ph="select * fro... movies" />
-                <marker date="1514304181642" expanded="true" signature="571:593" ph="select * fro... movies" />
-                <marker date="1514304181642" expanded="true" signature="1232:1281" ph="insert into movies... " />
-                <marker date="1514304181642" expanded="true" signature="1232:1302" ph="insert into movies... " />
-                <marker date="1514304181642" expanded="true" signature="1232:1315" ph="insert into movies... " />
+                <element signature="e#16#52#0" expanded="true" />
+                <marker date="1514350335684" expanded="true" signature="551:571" ph="select * fro... movies" />
+                <marker date="1514350335684" expanded="true" signature="551:573" ph="select * fro... movies" />
+                <marker date="1514350335684" expanded="true" signature="1191:1240" ph="insert into movies... " />
+                <marker date="1514350335684" expanded="true" signature="1191:1261" ph="insert into movies... " />
+                <marker date="1514350335684" expanded="true" signature="1191:1274" ph="insert into movies... " />
+                <marker date="1514350335684" expanded="true" signature="1902:1932" ph="delete from " />
+                <marker date="1514350335684" expanded="true" signature="1902:1934" ph="delete from " />
+                <marker date="1514350335684" expanded="true" signature="1902:1940" ph="delete from " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="movies.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="movies.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movies/controllers/movies.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-31">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="496">
+              <caret line="69" column="5" lean-forward="false" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
               <folding>
                 <element signature="e#21#147#0" expanded="true" />
               </folding>
@@ -49,8 +62,8 @@
       <file leaf-file-name="router.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movies/router/router.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+            <state relative-caret-position="221">
+              <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
               <folding>
                 <element signature="e#16#92#0" expanded="true" />
               </folding>
@@ -125,8 +138,8 @@
         <option value="$PROJECT_DIR$/movies/main.go" />
         <option value="$PROJECT_DIR$/movies/models/models.go" />
         <option value="$PROJECT_DIR$/movies/router/router.go" />
-        <option value="$PROJECT_DIR$/movies/models/db.go" />
         <option value="$PROJECT_DIR$/movies/controllers/movies.go" />
+        <option value="$PROJECT_DIR$/movies/models/db.go" />
       </list>
     </option>
   </component>
@@ -336,12 +349,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1514215713579</updated>
-      <workItem from="1514215720502" duration="26845000" />
+      <workItem from="1514215720502" duration="31261000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26845000" />
+    <option name="totallyTimeSpent" value="31261000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1050" extended-state="6" />
@@ -352,17 +365,17 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33043477" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33043477" sideWeight="0.50213444" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33043477" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2497332" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24670532" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39891306" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -386,6 +399,10 @@
       <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/movies/router/routes.go">
@@ -428,33 +445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movies/models/db.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-688">
-          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-          <folding>
-            <marker date="1514304181642" expanded="true" signature="571:591" ph="select * fro... movies" />
-            <marker date="1514304181642" expanded="true" signature="571:593" ph="select * fro... movies" />
-            <marker date="1514304181642" expanded="true" signature="1232:1281" ph="insert into movies... " />
-            <marker date="1514304181642" expanded="true" signature="1232:1302" ph="insert into movies... " />
-            <marker date="1514304181642" expanded="true" signature="1232:1315" ph="insert into movies... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movies/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
-          <folding>
-            <element signature="e#14#166#0" expanded="true" />
-            <marker date="1514287449807" expanded="true" signature="503:764" ph="CREATE TABLE... IF" />
-            <marker date="1514287449807" expanded="true" signature="899:912" ph="select * fro... " />
-            <marker date="1514287449807" expanded="true" signature="899:919" ph="select $1 fr... movies" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/movies/models/models.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -473,10 +463,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/movies/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+          <folding>
+            <element signature="e#14#166#0" expanded="true" />
+            <marker date="1514287449807" expanded="true" signature="503:764" ph="CREATE TABLE... IF" />
+            <marker date="1514287449807" expanded="true" signature="899:912" ph="select * fro... " />
+            <marker date="1514287449807" expanded="true" signature="899:919" ph="select $1 fr... movies" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/movies/router/router.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        <state relative-caret-position="221">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
           <folding>
             <element signature="e#16#92#0" expanded="true" />
           </folding>
@@ -485,10 +488,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/movies/controllers/movies.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-31">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="496">
+          <caret line="69" column="5" lean-forward="false" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
           <folding>
             <element signature="e#21#147#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movies/models/db.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-59">
+          <caret line="60" column="19" lean-forward="false" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
+          <folding>
+            <element signature="e#16#52#0" expanded="true" />
+            <marker date="1514350335684" expanded="true" signature="551:571" ph="select * fro... movies" />
+            <marker date="1514350335684" expanded="true" signature="551:573" ph="select * fro... movies" />
+            <marker date="1514350335684" expanded="true" signature="1191:1240" ph="insert into movies... " />
+            <marker date="1514350335684" expanded="true" signature="1191:1261" ph="insert into movies... " />
+            <marker date="1514350335684" expanded="true" signature="1191:1274" ph="insert into movies... " />
+            <marker date="1514350335684" expanded="true" signature="1902:1932" ph="delete from " />
+            <marker date="1514350335684" expanded="true" signature="1902:1934" ph="delete from " />
+            <marker date="1514350335684" expanded="true" signature="1902:1940" ph="delete from " />
           </folding>
         </state>
       </provider>

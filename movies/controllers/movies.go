@@ -47,6 +47,25 @@ func NewMovie(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 				res := json.RawMessage(`{"id":"` + resp + `"}`)
 				w.Write(res)
 			}
+		} else {
+			w.WriteHeader(http.StatusBadRequest)
+			resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
+			w.Write(resp)
+			glog.Error(err)
 		}
+	}
+}
+
+func DeleteMovie(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
+	err := models.DeleteMovie(p.ByName("id"))
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
+		w.Write(resp)
+		glog.Error(err)
+	} else {
+		w.WriteHeader(http.StatusOK)
+		res := json.RawMessage(`{"status":"ok"}`)
+		w.Write(res)
 	}
 }
