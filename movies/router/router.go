@@ -11,5 +11,6 @@ func New() *httprouter.Router {
 	router.POST("/movie", controllers.NewMovie)
 	router.DELETE("/movie/:id", controllers.DeleteMovie)
 	router.POST("/movie/:id", controllers.UpdateMovie)
+	router.GET("/movie/:id", controllers.GetMovie)
 	return router
 }

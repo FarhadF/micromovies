@@ -49,6 +49,23 @@ func GetMovies() ([]Movie, error) {
 	return movies, nil
 }
 
+func GetMovie(id string) (Movie, error) {
+	var movie Movie
+	err := CheckDbSession(db)
+	if err != nil {
+		return movie , err
+	}
+	rows := db.QueryRow("select * from movies where id = $1", id)
+	if err != nil {
+		return movie, err
+	}
+	err = rows.Scan(&movie.Id, &movie.Title, &movie.Director, &movie.Year, &movie.Userid, &movie.CreatedOn, &movie.UpdatedOn)
+	if err != nil {
+		return movie, err
+	}
+	return movie, nil
+}
+
 func NewMovie(movie *Movie) (string,error) {
 	err := CheckDbSession(db)
 	if err != nil {

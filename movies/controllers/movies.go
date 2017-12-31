@@ -19,8 +19,27 @@ func GetMovies(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
     	glog.Error(err)
 	}
 	if err := json.NewEncoder(w).Encode(movies); err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
 		glog.Error("Error EncodingJson in ControllersGetMovies", err)
 
+	}
+}
+
+func GetMovie(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.WriteHeader(http.StatusOK)
+	movie,err := models.GetMovie(p.ByName("id"))
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
+		w.Write(resp)
+		glog.Error(err)
+	} else {
+		if err := json.NewEncoder(w).Encode(movie); err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			glog.Error("Error EncodingJson in ControllersGetMovies", err)
+
+		}
 	}
 }
 
