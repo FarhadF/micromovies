@@ -13,7 +13,14 @@ type Movie struct {
 	CreatedOn time.Time `json:"createdon"`
 	UpdatedOn time.Time `json:"updatedon"`
 }
-
-type ErrOut struct {
-	Error string `json:"error"`
-}
+/*
+CREATE TABLE movies (
+id UUID NOT NULL DEFAULT gen_random_uuid(),
+title STRING NULL,
+director STRING NULL,
+year STRING NULL,
+userid UUID NULL,
+createdon TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
+updatedon TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
+CONSTRAINT "primary" PRIMARY KEY (id ASC),
+)*/

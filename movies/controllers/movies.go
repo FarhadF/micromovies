@@ -68,7 +68,7 @@ func NewMovie(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			}
 		} else {
 			w.WriteHeader(http.StatusBadRequest)
-			resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
+			resp := json.RawMessage(`{"error":"fill all the required fields"}`)
 			w.Write(resp)
 			glog.Error(err)
 		}
