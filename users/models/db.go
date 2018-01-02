@@ -66,6 +66,24 @@ func GetUser(id string) (User, error) {
 	return user, nil
 }
 
+func GetUserByEmail(email string) (User, error) {
+	var user User
+	err := CheckDbSession(db)
+	if err != nil {
+		return user , err
+	}
+	rows := db.QueryRow("select * from users where email = $1", email)
+	if err != nil {
+		return user, err
+	}
+	err = rows.Scan(&user.Id, &user.Name, &user.LastName, &user.Email, &user.Password, &user.CreatedOn, &user.UpdatedOn)
+	if err != nil {
+		return user, err
+	}
+	return user, nil
+}
+
+
 func NewUser(user *User) (string,error) {
 	err := CheckDbSession(db)
 	if err != nil {
@@ -127,4 +145,15 @@ func UpdateUser(user *User) error {
 		return err
 	}
 	return nil
+}
+
+func Login(cred *Credential) error {
+	user, err := GetUserByEmail(cred.Email)
+	if err != nil {
+		return err
+	}
+	if cred.Password == user.Password {
+		return nil
+	}
+	return errors.New("email or password incorrect")
 }

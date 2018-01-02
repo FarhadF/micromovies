@@ -13,6 +13,6 @@ func New() *httprouter.Router {
 	router.POST("/user/:id", controllers.UpdateUser)
 	router.GET("/user/id/:id", controllers.GetUser)
 	router.GET("/user/email/:email", controllers.GetUserByEmail)
-	//router.POST("/login", controllers.Login)
+	router.POST("/login", controllers.Login)
 	return router
 }
