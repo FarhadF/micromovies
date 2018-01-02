@@ -14,7 +14,8 @@ func New() *httprouter.Router {
     router.POST("/movie/*post", controllers.ReverseMovie)
 	router.GET("/users", controllers.ReverseUsers)
 	router.POST("/user", controllers.ReverseUser)
-	router.GET("/user/*get", controllers.ReverseUser)
+	router.GET("/user/id/*get", controllers.ReverseUser)
+	router.GET("/user/email/*get", controllers.ReverseUser)
 	router.DELETE("/user/*delete", controllers.ReverseUser)
 	router.POST("/user/*post", controllers.ReverseUser)
 

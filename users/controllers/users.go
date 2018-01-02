@@ -43,6 +43,24 @@ func GetUser(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	}
 }
 
+func GetUserByEmail(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.WriteHeader(http.StatusOK)
+	user,err := models.GetUserByEmail(p.ByName("email"))
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
+		w.Write(resp)
+		glog.Error(err)
+	} else {
+		if err := json.NewEncoder(w).Encode(user); err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			glog.Error("Error EncodingJson in ControllersGetMovies", err)
+
+		}
+	}
+}
+
 func NewUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	user := new(models.User)
