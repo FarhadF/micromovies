@@ -9,5 +9,6 @@ func New() *httprouter.Router {
 	router := httprouter.New()
 	router.POST("/createtoken", controllers.CreateToken)
 	//router.POST("/extractclaims", controllers.ExtractClaims)
+	router.POST("/validate", controllers.ValidateToken)
 	return router
 }

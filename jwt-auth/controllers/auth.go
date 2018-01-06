@@ -21,7 +21,7 @@ func CreateToken(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	} else {
 		if tokenReq.Email != "" && tokenReq.Role != "" {
 			var resp string
-			resp, err = (token.GenerateToken(tokenReq.Email, tokenReq.Role))
+			resp, err = token.GenerateToken(tokenReq.Email, tokenReq.Role)
 			if err != nil {
 				w.WriteHeader(http.StatusInternalServerError)
 				resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
@@ -39,4 +39,40 @@ func CreateToken(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			glog.Error(err)
 		}
 	}
+}
+
+func ValidateToken(w http.ResponseWriter, r *http.Request, _ httprouter.Params){
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	tokenRec := new(models.TokenRec)
+	err := json.NewDecoder(r.Body).Decode(&tokenRec)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
+		w.Write(resp)
+		glog.Error(err)
+	} else {
+		if tokenRec.TokenString != "" {
+			parsedToken, err := token.ParseToken(tokenRec.TokenString)
+			if err != nil {
+				w.WriteHeader(http.StatusInternalServerError)
+				resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
+				w.Write(resp)
+				glog.Error(err)
+			} else if parsedToken.Valid == false {
+				w.WriteHeader(http.StatusBadRequest)
+				resp := json.RawMessage(`{"error":"invalid token"}`)
+				w.Write(resp)
+			} else {
+				w.WriteHeader(http.StatusOK)
+				err := json.NewEncoder(w).Encode(parsedToken.Claims)
+				if err != nil {
+					w.WriteHeader(http.StatusInternalServerError)
+					glog.Error(err)
+				}
+				glog.Info(parsedToken.Claims)
+			}
+
+		}
+	}
+
 }

@@ -1,10 +1,10 @@
 package token
 
 import (
-	"encoding/json"
+	//"encoding/json"
 	"errors"
 	"github.com/dgrijalva/jwt-go"
-	"log"
+	//"log"
 	"net/http"
 	"strings"
 	"time"
@@ -18,9 +18,9 @@ const mySigningKey = "Super_Dup3r_S3cret"
 
 func GenerateToken(email string, role string) (string, error) {
 	// Create the token
-	token := jwt.New(jwt.SigningMethodHS256)
+	tokenObject := jwt.New(jwt.SigningMethodHS256)
 	// Set some claims
-	token.Claims = jwt.MapClaims{
+	tokenObject.Claims = jwt.MapClaims{
 		"exp":   time.Now().Add(time.Hour * time.Duration(1)).Unix(),
 		"iat":   time.Now().Unix(),
 		"email": email,
@@ -28,19 +28,19 @@ func GenerateToken(email string, role string) (string, error) {
 }
 
 	// Sign and get the complete encoded token as a string
-	tokenString, err := token.SignedString([]byte(mySigningKey))
+	tokenString, err := tokenObject.SignedString([]byte(mySigningKey))
 	return tokenString, err
 }
 
-func ParseToken(myToken string) (bool, error) {
-	token, err := jwt.Parse(myToken, func(token *jwt.Token) (interface{}, error) {
+func ParseToken(myToken string) (*jwt.Token, error) {
+	parsedToken, err := jwt.Parse(myToken, func(token *jwt.Token) (interface{}, error) {
 		return []byte(mySigningKey), nil
 	})
 	//fmt.Println(token.Claims)
-	if err == nil && token.Valid {
-		return true, nil
+	if err == nil && parsedToken.Valid {
+		return parsedToken, nil
 	} else {
-		return false, err
+		return &jwt.Token{}, err
 	}
 }
 
@@ -56,7 +56,7 @@ func ExtractToken(r *http.Request) (string, error) {
 
 }
 
-func TokenHandler(w http.ResponseWriter, r *http.Request) bool {
+/*func TokenHandler(w http.ResponseWriter, r *http.Request) bool {
 
 	authToken, err := ExtractToken(r)
 	if err != nil {
@@ -68,15 +68,11 @@ func TokenHandler(w http.ResponseWriter, r *http.Request) bool {
 		}
 		return false
 	} else {
-		tokenStatus, err := ParseToken(authToken)
+		parsedToken, err := ParseToken(authToken)
 		//fmt.Println("tokenStatus: ", tokenStatus, "err: ", err.Error())
-		if err != nil || tokenStatus == false {
-			errout := new(errOut)
-			errout.Error = err.Error()
-			w.WriteHeader(http.StatusForbidden)
-			if err := json.NewEncoder(w).Encode(errout); err != nil {
-				log.Panic("Error EncodingJson in TokenHandler", err)
-			}
+		if err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			log.Panic("Error EncodingJson in TokenHandler", err)
 			log.Println("token status err: ", err)
 			return false
 
@@ -89,3 +85,4 @@ func TokenHandler(w http.ResponseWriter, r *http.Request) bool {
 	}
 
 }
+*/
