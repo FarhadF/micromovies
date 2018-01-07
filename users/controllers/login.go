@@ -6,6 +6,8 @@ import (
 	"micromovies/users/models"
 	"encoding/json"
 	"github.com/golang/glog"
+	"bytes"
+	"io/ioutil"
 )
 
 func Login(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
@@ -32,10 +34,24 @@ func Login(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 				w.Write(resp)
 				glog.Error(err)
 			} else {
-				//todo: generate jwt token
-				resp := json.RawMessage(`{"status":"ok"}`)
+				//todo: fix localhost + get roles from database
+				url := "http://localhost:8083/createtoken"
+				var jsonStr = json.RawMessage(`{"email":"` + cred.Email + `","role":"` + "user" +`"}`)
+				//glog.Info(string(jsonStr))
+				req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
+				req.Header.Set("Content-Type", "application/json")
+				client := &http.Client{}
+				resp, err := client.Do(req)
+				if err != nil {
+					glog.Error(err)
+				}
+				defer resp.Body.Close()
+				glog.Info("response Status:", resp.Status)
+				body, _ := ioutil.ReadAll(resp.Body)
+				glog.Info("response Body:", string(body))
+				//resp := json.RawMessage(`{"status":"ok"}`)
 				w.WriteHeader(http.StatusOK)
-				w.Write(resp)
+				w.Write([]byte(body))
 			}
 		} else {
 			w.WriteHeader(http.StatusBadRequest)

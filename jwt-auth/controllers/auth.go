@@ -17,6 +17,7 @@ func CreateToken(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		w.WriteHeader(http.StatusBadRequest)
 		resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
 		w.Write(resp)
+		glog.Info(r.Body)
 		glog.Error(err)
 	} else {
 		if tokenReq.Email != "" && tokenReq.Role != "" {
