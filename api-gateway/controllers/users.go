@@ -30,8 +30,13 @@ func ReverseUserProtected(w http.ResponseWriter, r *http.Request, _ httprouter.P
 		glog.Error(err)
 	} else {
 
+		tokenStatus := token.ValidateToken(tokenString, "user")
+		glog.Info(tokenStatus)
+	}
+
+		/*} else {
 		target := &url.URL{Scheme: "http", Host: "192.168.163.196:8082"}
 		proxy := httputil.NewSingleHostReverseProxy(target)
 		proxy.ServeHTTP(w, r)
-	}
+	}*/
 }
