@@ -24,6 +24,7 @@ func ReverseUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 func ReverseUserProtected(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	tokenString, err := token.ExtractToken(r)
 	if err != nil {
+		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 		w.WriteHeader(http.StatusInternalServerError)
 		resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
 		w.Write(resp)
@@ -32,6 +33,16 @@ func ReverseUserProtected(w http.ResponseWriter, r *http.Request, _ httprouter.P
 
 		tokenStatus := token.ValidateToken(tokenString, "user")
 		glog.Info(tokenStatus)
+		if tokenStatus == true {
+			target := &url.URL{Scheme: "http", Host: "192.168.163.196:8082"}
+			proxy := httputil.NewSingleHostReverseProxy(target)
+			proxy.ServeHTTP(w, r)
+		} else {
+			w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+			w.WriteHeader(http.StatusForbidden)
+			resp := json.RawMessage(`{"status":"forbidden"}`)
+			w.Write(resp)
+		}
 	}
 
 		/*} else {
