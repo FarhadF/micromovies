@@ -45,6 +45,7 @@ func ValidateToken(tokenStr string, requiredClaim string) bool {
 			glog.Info("role is not user")
 			return false
 		}
+		//Expiration is already checked on token.Parse from the jwt-go package
 		return true
 	}
 	return false

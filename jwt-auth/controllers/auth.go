@@ -55,7 +55,7 @@ func ValidateToken(w http.ResponseWriter, r *http.Request, _ httprouter.Params){
 		if tokenRec.TokenString != "" {
 			parsedToken, err := token.ParseToken(tokenRec.TokenString)
 			if err != nil {
-				w.WriteHeader(http.StatusInternalServerError)
+				w.WriteHeader(http.StatusBadRequest)
 				resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
 				w.Write(resp)
 				glog.Error(err)
