@@ -15,7 +15,7 @@ func ExtractToken(r *http.Request) (string, error) {
 	split := strings.Split(auth, " ")
 	if split[0] != "Bearer" || split[1] == "" {
 
-		return "", errors.New("Malformed Auth Header")
+		return "", errors.New("malformed auth header")
 	} else {
 		return split[1], nil
 	}
