@@ -39,7 +39,7 @@ func GetUsers() ([]User, error) {
 	users := make([]User, 0)
 	for rows.Next() {
 		user := new(User)
-		err = rows.Scan(&user.Id, &user.Name, &user.LastName, &user.Email, &user.Password, &user.CreatedOn, &user.UpdatedOn)
+		err = rows.Scan(&user.Id, &user.Name, &user.LastName, &user.Email, &user.Password, &user.Role, &user.CreatedOn, &user.UpdatedOn)
 		if err != nil {
 			return nil, err
 		}
@@ -59,7 +59,7 @@ func GetUser(id string) (User, error) {
 	if err != nil {
 		return user, err
 	}
-	err = rows.Scan(&user.Id, &user.Name, &user.LastName, &user.Email, &user.Password, &user.CreatedOn, &user.UpdatedOn)
+	err = rows.Scan(&user.Id, &user.Name, &user.LastName, &user.Email, &user.Password, &user.Role, &user.CreatedOn, &user.UpdatedOn)
 	if err != nil {
 		return user, err
 	}
@@ -76,7 +76,7 @@ func GetUserByEmail(email string) (User, error) {
 	if err != nil {
 		return user, err
 	}
-	err = rows.Scan(&user.Id, &user.Name, &user.LastName, &user.Email, &user.Password, &user.CreatedOn, &user.UpdatedOn)
+	err = rows.Scan(&user.Id, &user.Name, &user.LastName, &user.Email, &user.Password, &user.Role, &user.CreatedOn, &user.UpdatedOn)
 	if err != nil {
 		return user, err
 	}
@@ -95,7 +95,7 @@ func NewUser(user *User) (string,error) {
 	}
 	if !rows.Next(){
 		var  id string
-		err := db.QueryRow("insert into users (name, lastname, email, password) values($1,$2,$3,$4) returning id", user.Name, user.LastName, user.Email, user.Password).Scan(&id)
+		err := db.QueryRow("insert into users (name, lastname, email, password, role) values($1,$2,$3,$4,$5) returning id", user.Name, user.LastName, user.Email, user.Password, "user").Scan(&id)
 		if err != nil {
 			return "", err
 		}
