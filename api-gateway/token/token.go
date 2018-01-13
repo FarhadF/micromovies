@@ -1,13 +1,13 @@
 package token
 
 import (
+	"bytes"
+	"encoding/json"
+	"errors"
+	"github.com/golang/glog"
+	"micromovies/api-gateway/models"
 	"net/http"
 	"strings"
-	"errors"
-	"encoding/json"
-	"github.com/golang/glog"
-	"bytes"
-	"micromovies/api-gateway/models"
 )
 
 func ExtractToken(r *http.Request) (string, error) {

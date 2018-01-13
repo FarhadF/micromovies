@@ -1,22 +1,22 @@
 package controllers
 
 import (
-	"net/http"
-	"github.com/julienschmidt/httprouter"
-	"github.com/golang/glog"
 	"encoding/json"
+	"github.com/golang/glog"
+	"github.com/julienschmidt/httprouter"
 	"micromovies/users/models"
+	"net/http"
 )
 
 func GetUsers(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
-    users,err := models.GetUsers()
-    if err != nil {
+	users, err := models.GetUsers()
+	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
 		w.Write(resp)
-    	glog.Error(err)
+		glog.Error(err)
 	}
 	if err := json.NewEncoder(w).Encode(users); err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -28,7 +28,7 @@ func GetUsers(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 func GetUser(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
-	user,err := models.GetUser(p.ByName("id"))
+	user, err := models.GetUser(p.ByName("id"))
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
@@ -46,7 +46,7 @@ func GetUser(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 func GetUserByEmail(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
-	user,err := models.GetUserByEmail(p.ByName("email"))
+	user, err := models.GetUserByEmail(p.ByName("email"))
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
@@ -79,7 +79,7 @@ func NewUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 				resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
 				w.Write(resp)
 				glog.Error(err)
-			}else{
+			} else {
 				w.WriteHeader(http.StatusOK)
 				res := json.RawMessage(`{"id":"` + resp + `"}`)
 				w.Write(res)

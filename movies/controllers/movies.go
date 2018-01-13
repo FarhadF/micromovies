@@ -1,22 +1,22 @@
 package controllers
 
 import (
-	"net/http"
-	"github.com/julienschmidt/httprouter"
-	"github.com/golang/glog"
 	"encoding/json"
+	"github.com/golang/glog"
+	"github.com/julienschmidt/httprouter"
 	"micromovies/movies/models"
+	"net/http"
 )
 
 func GetMovies(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
-    movies,err := models.GetMovies()
-    if err != nil {
+	movies, err := models.GetMovies()
+	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
 		w.Write(resp)
-    	glog.Error(err)
+		glog.Error(err)
 	}
 	if err := json.NewEncoder(w).Encode(movies); err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -28,7 +28,7 @@ func GetMovies(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 func GetMovie(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
-	movie,err := models.GetMovie(p.ByName("id"))
+	movie, err := models.GetMovie(p.ByName("id"))
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
@@ -61,7 +61,7 @@ func NewMovie(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 				resp := json.RawMessage(`{"error":"` + err.Error() + `"}`)
 				w.Write(resp)
 				glog.Error(err)
-			}else{
+			} else {
 				w.WriteHeader(http.StatusOK)
 				res := json.RawMessage(`{"id":"` + resp + `"}`)
 				w.Write(res)

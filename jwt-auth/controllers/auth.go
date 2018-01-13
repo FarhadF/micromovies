@@ -1,12 +1,12 @@
 package controllers
 
 import (
-	"net/http"
-	"github.com/julienschmidt/httprouter"
-	"github.com/golang/glog"
 	"encoding/json"
-	"micromovies/jwt-auth/token"
+	"github.com/golang/glog"
+	"github.com/julienschmidt/httprouter"
 	"micromovies/jwt-auth/models"
+	"micromovies/jwt-auth/token"
+	"net/http"
 )
 
 func CreateToken(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
@@ -42,7 +42,7 @@ func CreateToken(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	}
 }
 
-func ValidateToken(w http.ResponseWriter, r *http.Request, _ httprouter.Params){
+func ValidateToken(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	tokenRec := new(models.TokenRec)
 	err := json.NewDecoder(r.Body).Decode(&tokenRec)

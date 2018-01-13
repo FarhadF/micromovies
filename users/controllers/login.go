@@ -1,13 +1,13 @@
 package controllers
 
 import (
-	"net/http"
-	"github.com/julienschmidt/httprouter"
-	"micromovies/users/models"
+	"bytes"
 	"encoding/json"
 	"github.com/golang/glog"
-	"bytes"
+	"github.com/julienschmidt/httprouter"
 	"io/ioutil"
+	"micromovies/users/models"
+	"net/http"
 )
 
 func Login(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
@@ -22,7 +22,7 @@ func Login(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		glog.Error(err)
 	} else {
 		if cred.Email != "" && cred.Password != "" {
-			err := models.Login(cred)
+			user, err := models.Login(cred)
 			if err != nil && (err.Error() == "sql: no rows in result set" || err.Error() == "email or password incorrect") {
 				w.WriteHeader(http.StatusBadRequest)
 				resp := json.RawMessage(`{"error":"email or password incorrect"}`)
@@ -34,9 +34,8 @@ func Login(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 				w.Write(resp)
 				glog.Error(err)
 			} else {
-				//todo: fix localhost + get roles from database
 				url := "http://localhost:8083/createtoken"
-				var jsonStr = json.RawMessage(`{"email":"` + cred.Email + `","role":"` + "user" +`"}`)
+				var jsonStr = json.RawMessage(`{"email":"` + cred.Email + `","role":"` + user.Role + `"}`)
 				//glog.Info(string(jsonStr))
 				req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
 				req.Header.Set("Content-Type", "application/json")
@@ -58,6 +57,6 @@ func Login(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			resp := json.RawMessage(`{"error":"fill all the required fields"}`)
 			w.Write(resp)
 			glog.Error(err)
-			}
+		}
 	}
 }

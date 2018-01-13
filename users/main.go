@@ -1,14 +1,14 @@
 package main
 
 import (
-	"github.com/golang/glog"
 	"flag"
+	"github.com/golang/glog"
 	_ "github.com/lib/pq"
+	"micromovies/users/httplog"
 	"micromovies/users/models"
 	"micromovies/users/router"
 	"net/http"
 	"os"
-	"micromovies/users/httplog"
 )
 
 func main() {

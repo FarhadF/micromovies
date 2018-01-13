@@ -25,7 +25,7 @@ func GenerateToken(email string, role string) (string, error) {
 		"iat":   time.Now().Unix(),
 		"email": email,
 		"role":  role,
-}
+	}
 
 	// Sign and get the complete encoded token as a string
 	tokenString, err := tokenObject.SignedString([]byte(mySigningKey))

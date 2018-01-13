@@ -9,10 +9,11 @@ type Movie struct {
 	Title     string    `json:"title"`
 	Director  string    `json:"director"`
 	Year      string    `json:"year"`
-	Userid    string	`json:"userid"`
+	Userid    string    `json:"userid"`
 	CreatedOn time.Time `json:"createdon"`
 	UpdatedOn time.Time `json:"updatedon"`
 }
+
 /*
 CREATE TABLE movies (
 id UUID NOT NULL DEFAULT gen_random_uuid(),

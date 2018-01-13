@@ -1,12 +1,12 @@
 package main
 
 import (
-	"github.com/golang/glog"
 	"flag"
+	"github.com/golang/glog"
+	"micromovies/jwt-auth/httplog"
 	"micromovies/jwt-auth/router"
 	"net/http"
 	"os"
-	"micromovies/jwt-auth/httplog"
 )
 
 func main() {

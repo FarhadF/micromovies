@@ -1,24 +1,24 @@
 package controllers
 
 import (
-	"net/http"
-	"github.com/julienschmidt/httprouter"
-	"net/url"
-	"net/http/httputil"
-	"micromovies/api-gateway/token"
-	"github.com/golang/glog"
 	"encoding/json"
+	"github.com/golang/glog"
+	"github.com/julienschmidt/httprouter"
+	"micromovies/api-gateway/token"
+	"net/http"
+	"net/http/httputil"
+	"net/url"
 )
 
 func ReverseUsers(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	target := &url.URL{Scheme: "http", Host: "192.168.163.196:8082"}
 	proxy := httputil.NewSingleHostReverseProxy(target)
-	proxy.ServeHTTP(w,r)
+	proxy.ServeHTTP(w, r)
 }
 func ReverseUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	target := &url.URL{Scheme: "http", Host: "192.168.163.196:8082"}
 	proxy := httputil.NewSingleHostReverseProxy(target)
-	proxy.ServeHTTP(w,r)
+	proxy.ServeHTTP(w, r)
 }
 
 func ReverseUserProtected(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
@@ -45,7 +45,7 @@ func ReverseUserProtected(w http.ResponseWriter, r *http.Request, _ httprouter.P
 		}
 	}
 
-		/*} else {
+	/*} else {
 		target := &url.URL{Scheme: "http", Host: "192.168.163.196:8082"}
 		proxy := httputil.NewSingleHostReverseProxy(target)
 		proxy.ServeHTTP(w, r)
