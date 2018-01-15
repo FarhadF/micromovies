@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/http/httputil"
 	"net/url"
+	"github.com/casbin/casbin"
 )
 
 //TODO: Find a way to handle http: proxy error: dial tcp 192.168.163.196:8082: getsockopt: connection refused when backend is not available
@@ -32,13 +33,29 @@ func ReverseMovieProtected(w http.ResponseWriter, r *http.Request, _ httprouter.
 		w.Write(resp)
 		glog.Error(err)
 	} else {
-
-		tokenStatus := token.ValidateToken(tokenString, "user")
-		glog.Info(tokenStatus)
+		parsedToken, tokenStatus := token.ValidateToken(tokenString)
+		glog.Info(parsedToken, tokenStatus)
 		if tokenStatus == true {
-			target := &url.URL{Scheme: "http", Host: "192.168.163.196:8082"}
-			proxy := httputil.NewSingleHostReverseProxy(target)
-			proxy.ServeHTTP(w, r)
+			//false for turn off logging
+			// Enable the logging at run-time.
+			//e.EnableLog(true)
+			//todo: database persistence instead of csv file
+			e := casbin.NewEnforcer("./model.conf", "./policy.csv", false)
+			sub := parsedToken.Role             // the user that wants to access a resource.
+			obj := "/movie/*"         // the resource that is going to be accessed.
+			act := " (DELETE)|(POST)" // the operation that the user performs on the resource.
+			if e.Enforce(sub, obj, act) == true {
+				//allow access:
+				target := &url.URL{Scheme: "http", Host: "192.168.163.196:8081"}
+				proxy := httputil.NewSingleHostReverseProxy(target)
+				proxy.ServeHTTP(w, r)
+			} else {
+				// deny the request, show an error:
+				w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+				w.WriteHeader(http.StatusForbidden)
+				resp := json.RawMessage(`{"status":"forbidden"}`)
+				w.Write(resp)
+			}
 		} else {
 			w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 			w.WriteHeader(http.StatusForbidden)

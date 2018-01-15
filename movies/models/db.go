@@ -126,7 +126,7 @@ func UpdateMovie(movie *Movie) error {
 	}
 	updatedon := time.Now()
 	fmt.Println(updatedon.Format("2006-01-02 15:04:05.999999"))
-	_, err = db.Query("update movies set title = $1, director = $2, year = $3 where id = $4, updatedon = $5", movie.Title, movie.Director, movie.Year, movie.Id, updatedon.Format("2017-12-26 05:33:46.689934+00:00"))
+	_, err = db.Query("update movies set title = $1, director = $2, year = $3, updatedon = $5 where id = $4", movie.Title, movie.Director, movie.Year, movie.Id, updatedon.Format("2006-01-02 15:04:05.999999"))
 	if err != nil {
 		return err
 	}

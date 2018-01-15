@@ -21,11 +21,12 @@ func ExtractToken(r *http.Request) (string, error) {
 	}
 }
 
-func ValidateToken(tokenStr string, requiredClaim string) bool {
+func ValidateToken(tokenStr string) (models.AuthToken, bool) {
 	tokenJson := json.RawMessage(`{"token":"` + tokenStr + `"}`)
 	url := "http://localhost:8083/validatetoken"
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(tokenJson))
 	req.Header.Set("Content-Type", "application/json")
+	var parsedToken models.AuthToken
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
@@ -34,19 +35,18 @@ func ValidateToken(tokenStr string, requiredClaim string) bool {
 	defer resp.Body.Close()
 	glog.Info("response Status:", resp.Status)
 	if resp.Status == "200 OK" {
-		var parsedToken models.AuthToken
 		err = json.NewDecoder(resp.Body).Decode(&parsedToken)
 		glog.Info(parsedToken)
 		if err != nil {
 			glog.Error(err)
-			return false
+			return parsedToken ,false
 		}
-		if parsedToken.Role != requiredClaim {
-			glog.Info("role is not user")
-			return false
-		}
+		//if parsedToken.Role != requiredClaim {
+		//	glog.Info("role is not user")
+		//	return parsedToken, false
+		//}
 		//Expiration is already checked on token.Parse from the jwt-go package
-		return true
+		return parsedToken, true
 	}
-	return false
+	return parsedToken, false
 }
