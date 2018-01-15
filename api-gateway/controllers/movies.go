@@ -9,7 +9,6 @@ import (
 	"net/http/httputil"
 	"net/url"
 	"github.com/casbin/casbin"
-	"time"
 )
 
 //TODO: Find a way to handle http: proxy error: dial tcp 192.168.163.196:8082: getsockopt: connection refused when backend is not available
