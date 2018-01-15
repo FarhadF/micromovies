@@ -9,6 +9,7 @@ import (
 	"net/http/httputil"
 	"net/url"
 	"github.com/casbin/casbin"
+	"time"
 )
 
 //TODO: Find a way to handle http: proxy error: dial tcp 192.168.163.196:8082: getsockopt: connection refused when backend is not available
@@ -44,6 +45,9 @@ func ReverseMovieProtected(w http.ResponseWriter, r *http.Request, _ httprouter.
 			sub := parsedToken.Role             // the user that wants to access a resource.
 			obj := "/movie/*"         // the resource that is going to be accessed.
 			act := " (DELETE)|(POST)" // the operation that the user performs on the resource.
+			/*s := time.Now()
+			_ = e.Enforce(sub, obj, act)
+			glog.Info("casbinbench: ", time.Since(s))*/
 			if e.Enforce(sub, obj, act) == true {
 				//allow access:
 				target := &url.URL{Scheme: "http", Host: "192.168.163.196:8081"}
