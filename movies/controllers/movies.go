@@ -42,7 +42,7 @@ func GetMovie(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 		}
 	}
 }
-
+//todo: get userid from the request
 func NewMovie(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	movie := new(models.Movie)
@@ -89,7 +89,7 @@ func DeleteMovie(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 		w.Write(res)
 	}
 }
-
+//todo: get userid from the request
 func UpdateMovie(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	movie := new(models.Movie)
