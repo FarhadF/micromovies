@@ -1,1 +1,2 @@
 p, user, /movie/*, (DELETE)|(POST)
+p, user, /user/*, (GET)|(POST)
