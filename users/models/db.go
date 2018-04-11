@@ -96,7 +96,8 @@ func NewUser(user *User) (string, error) {
 	}
 	if !rows.Next() {
 		var id string
-		err := db.QueryRow("insert into users (name, lastname, email, password, role) values($1,$2,$3,$4,$5) returning id", user.Name, user.LastName, user.Email, user.Password, "user").Scan(&id)
+		user.Role = "user"
+		err := db.QueryRow("insert into users (name, lastname, email, password, userrole) values($1,$2,$3,$4,$5) returning id", user.Name, user.LastName, user.Email, user.Password, user.Role).Scan(&id)
 		if err != nil {
 			return "", err
 		}
