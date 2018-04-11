@@ -27,7 +27,7 @@ name STRING NULL,
 lastname STRING NULL,
 email STRING NOT NULL,
 password STRING NOT NULL,
-role string NOT NULL,
+userrole string NOT NULL,
 createdon TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
 updatedon TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
 CONSTRAINT "primary" PRIMARY KEY (id ASC))
