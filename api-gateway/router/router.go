@@ -8,7 +8,7 @@ import (
 func New() *httprouter.Router {
 	router := httprouter.New()
 	router.GET("/movies", controllers.ReverseMovies)
-	router.POST("/movie", controllers.ReverseMovie)
+	router.POST("/movie", controllers.ReverseMovieProtected)
 	router.GET("/movie/*get", controllers.ReverseMovie)
 	router.DELETE("/movie/*delete", controllers.ReverseMovieProtected)
 	router.POST("/movie/*post", controllers.ReverseMovieProtected)
